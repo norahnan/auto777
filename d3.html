@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>简单聊天框</title>
+    <meta charset="UTF-8">
+ <style type="text/css">
+  body {
+   font-family: Arial, sans-serif;
+   background-color: #f2f2f2;
+  }
+  #chat-box {
+   width: 300px;
+   height: 400px;
+   border: 1px solid #ccc;
+   overflow: auto;
+   margin-bottom: 10px;
+   padding: 5px;
+   background-color: #fff;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  #input-box {
+   width: 300px;
+   height: 50px;
+   border: 1px solid #ccc;
+   padding: 5px;
+   margin-bottom: 10px;
+   background-color: #fff;
+   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+  p {
+   margin: 0;
+   padding: 5px;
+   border-top: 1px solid #ccc;
+   border-bottom: 1px solid #ccc;
+  }
+ </style>
+</head>
+<body>
+ <div id="chat-box"></div>
+ <input type="text" id="input-box">
+ <button onclick="sendMessage()">发送</button>
+ <script type="text/javascript">
+  function sendMessage() {
+   var inputBox = document.getElementById("input-box");
+   var message = inputBox.value;
+   if (message !== "") {
+    var chatBox = document.getElementById("chat-box");
+    var newMessage = document.createElement("p");
+    newMessage.innerText = message;
+    chatBox.appendChild(newMessage);
+    inputBox.value = "";
+    chatBox.scrollTop = chatBox.scrollHeight;
+   }
+  }
+ </script>
+</body>
+</html>
